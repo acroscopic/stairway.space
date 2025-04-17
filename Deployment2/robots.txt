@@ -1,0 +1,6 @@
+# robots.txt for https://damienkoon.com
+# For now, I don't want any robits on my page. Probably will hurt SEO, but whatever
+# I don't think I need a sitemap, maybe later
+
+User-agent: *
+Disallow: /
