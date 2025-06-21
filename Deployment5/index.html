@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>stairway.space | Home</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Personal website of Damien Koon, undergraduate student at Florida Institute of Technology studying Physics, Mathematics, and Astronomy & Astrophysics">
+	<link rel="stylesheet" href="css/styles.css">
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+	<link rel="icon" sizes="192x192" href="images/android-chrome-192.png">
+</head>
+
+<body>
+	<div id="wrapper">
+		<header class="site-header">
+			<div class="header-content">
+				<div class="logo-container">
+					<a href="index.html" class="logo-link">
+						<span class="logo-text">stairway<span class="dot">.</span>space</span>
+						<span class="logo-subtitle">damien koon</span>
+					</a>
+				</div>
+				<nav class="main-nav" aria-label="Main navigation">
+					<ul>
+						<li><a href="index.html" aria-current="page">Home</a></li>
+						<li><a href="about.html">About Me</a></li>
+						<li><a href="resume.html">Resume</a></li>
+						<li><a href="CV.html">CV</a></li>
+						<li><a href="gallery.html">Gallery</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<section id="personal-introduction" class="welcome-card-grid">
+				<div class="intro-col">
+					<h1 class="main-title">Hi, I'm Damien Koon</h1>
+					<p class="greeting">I'm a triple major in Physics, Applied Mathematics, and Astronomy & Astrophysics at the Florida Institute of Technology. I'm pursuing a career in mathematical physics with a focus on gravitation. I've presented my work at international conferences and remain active in the academic community through leadership roles and public science outreach.</p>
+				</div>
+				<div class="academics-col">
+					<div class="accent-bar"></div>
+					<h2 class="section-title">🎓 Graduating Spring 2027</h2>
+					<ul class="degree-list-modern">
+						<li><span class="degree-icon">⚛️</span> B.S. in Physics</li>
+						<li><span class="degree-icon">🧮</span> B.S. in Applied Mathematics, Concentration: Abstract Mathematics</li>
+						<li><span class="degree-icon">🪐</span> B.S. in Astronomy & Astrophysics</li>
+					</ul>
+				</div>
+				<div class="external-links">
+					<h2>Connect & Collaborate</h2>
+					<nav aria-label="External links">
+						<ul class="link-grid">
+							<li class="link-item">
+								<a href="https://github.com/damienkoon" class="link-button" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub portfolio">
+									<img src="images/github-mark.png" alt="" class="link-icon icon-white" width="24" height="24">
+									<span class="link-text">GitHub Portfolio</span>
+								</a>
+							</li>
+							<li class="link-item">
+								<a href="https://linkedin.com/in/damienkoon" class="link-button" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn">
+									<img src="images/InBug-Black.png" alt="" class="link-icon icon-white" width="24" height="24">
+									<span class="link-text">LinkedIn Account</span>
+								</a>
+							</li>
+							<li class="link-item">
+								<a href="https://chess.com/member/damienkoon" class="link-button" target="_blank" rel="noopener noreferrer" aria-label="View my Chess.com profile">
+									<img src="images/chesscom_logo_pawn_negative.svg" alt="" class="link-icon" width="24" height="24">
+									<span class="link-text">Chess.com Profile</span>
+								</a>
+							</li>
+							<li class="link-item">
+								<a href="https://lichess.org/@/damienkoon" class="link-button" target="_blank" rel="noopener noreferrer" aria-label="View my Lichess profile">
+									<img src="images/Lichess_logo_2019.png" alt="" class="link-icon" width="24" height="24">
+									<span class="link-text">Lichess Profile</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+			<section id="current-projects" class="card">
+				<h2>Active Research & Projects</h2>
+
+				<article class="project">
+					<h3>CHSH Inequality Investigation</h3>
+					<div class="project-details">
+						<p class="project-description">
+							Exploring quantum entanglement fundamentals through the Clauser-Horne-Shimony-Holt (CHSH) inequality, investigating quantum vs. classical correlations in particle physics.
+						</p>
+						<a href="https://github.com/acroscopic/CHSH/blob/main/CHSH.pdf" 
+						   class="project-link"
+						   rel="noopener noreferrer"
+						   aria-label="View CHSH Inequality PDF documentation">
+							View Research Paper (PDF)
+						</a>
+						<div class="project-meta">
+							<span class="tech-stack">Quantum Mechanics | Information Theory</span>
+							<time datetime="2025-04-13">Last Updated: April 13, 2025</time>
+						</div>
+					</div>
+				</article>
+			</section>
+		</main>
+
+		<footer>
+			<p>&copy; Copyright 2025. All Rights Reserved.</p>
+			<p class="footer-changelog"><a href="changelog.html">Changelog</a></p>
+		</footer>
+	</div>
+	<div class="stars"></div>
+	
+	<script>
+		const stars = document.querySelector('.stars');
+		let scale = 1;
+		let lastFrame = performance.now();
+		let lastScroll = window.pageYOffset;
+
+		function animate() {
+			const now = performance.now();
+			const dt = (now - lastFrame) / 1000; // seconds
+			lastFrame = now;
+
+			// Constant forward drift
+			scale += 0.01 * dt;
+
+			// Scroll delta influence (can speed up or slow down)
+			const currentScroll = window.pageYOffset;
+			const deltaScroll = currentScroll - lastScroll;
+			scale += deltaScroll * 0.0001; // proportional boost; negative scroll pulls back
+			lastScroll = currentScroll;
+
+			if (scale < 1) scale = 1; // prevent inversion
+
+			stars.style.transform = `scale(${scale})`;
+			requestAnimationFrame(animate);
+		}
+
+		animate();
+	</script>
+</body>

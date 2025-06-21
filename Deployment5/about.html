@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stairway.space | About Me</title>
+    <meta name="description" content="Learn more about Damien Koon - Physics, Mathematics, and Astronomy student at Florida Institute of Technology">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" sizes="192x192" href="images/android-chrome-192.png">
+</head>
+
+<body>
+    <div id="wrapper">
+        <header class="site-header">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html" class="logo-link">
+                        <span class="logo-text">stairway<span class="dot">.</span>space</span>
+                        <span class="logo-subtitle">damien koon</span>
+                    </a>
+                </div>
+                <nav class="main-nav" aria-label="Main navigation">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html" aria-current="page">About Me</a></li>
+                        <li><a href="resume.html">Resume</a></li>
+                        <li><a href="CV.html">CV</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="about-section" style="margin-top: 0; padding-top: 0;">
+                <div class="about-content" style="padding-top: 0;">
+                    <div class="about-grid">
+                        <div class="about-text" style="max-width:100ch;">
+                            <h2>Academic Journey</h2>
+                            <p>I'm Damien, a Mississippi Gulf Coast native with a fascination of the universe. My journey into physics began unexpectedly during the 2020 lockdown when I enrolled in an online cybersecurity program. While navigating remote lectures I rediscovered a childhood fascination with numbers, and the elegance of complex numbers drew me back to mathematics. After earning an associate degree in cybersecurity, I transferred to the Florida Institute of Technology where I now pursue three concurrent bachelor's degrees in Physics, Applied Mathematics, and Astronomy & Astrophysics.</p>
+                            
+                            <h2>Research Interests</h2>
+                            <p>My primary focus lies in mathematical physics, with a particular interest in quantum mechanics and gravitational theory. My academic journey has been shaped not just by coursework but by research and hands-on experience. I've recreated quantum entanglement experiments using IBM quantum computers, working on both simulation and real hardware to demonstrate violations of the CHSH inequality. More recently, I've applied machine learning to astrophysical problems, training neural networks to model the afterglows of gamma-ray bursts. Presenting this research internationally taught me the value of clarity and precision in scientific communication. Outside the lab, I've developed educational programming and outreach events through my work at the INFINITY Science Center—NASA's visitor center near Stennis Space Center—and as an assistant at Florida Tech's Ortega Observatory. Both roles allowed me to bring science to the public through telescope nights, interactive demos, and museum tours.</p>
+                            
+                            <h2>Beyond Academics</h2>
+                            <p>Throughout my time in academia, I've remained committed to my community. As a former president of the Society of Physics Students, I helped organize workshops, conference trips, and outreach events aimed at supporting both future physicists and a broader public understanding of science. My long-term goal is an academic career in mathematical physics, with a research focus on gravitation. Until then, you'll most likely find me scribbling through math, lost in equations, getting distracted by a chess game, or just looking up at the stars.</p>
+                        </div>
+                        
+                        <div class="about-sidebar">
+                            <figure class="profile-photo">
+                                <img src="gallery/SpaceCenterHoustonEntrance.png" alt="Damien Koon at Space Center Houston entrance" loading="lazy" width="300">
+                            </figure>
+                            
+                            <div class="interests-card">
+                                <h3>Interests</h3>
+                                <ul class="interests-list">
+                                    <li>Mathematical Physics</li>
+                                    <li>Gravitational Theory</li>
+                                    <li>Quantum Mechanics</li>
+                                    <li>Chess</li>
+                                    <li>Open Source</li>
+                                    <li>Public Speaking</li>
+                                    <li>Science Outreach</li>
+                                    <li>Academic Leadership</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; Copyright 2025. All Rights Reserved.</p>
+            <p class="footer-changelog"><a href="changelog.html">Changelog</a></p>
+        </footer>
+    </div>
+    <div class="stars"></div>
+    
+    <script>
+        const stars = document.querySelector('.stars');
+        let scale = 1;
+        let lastFrame = performance.now();
+        let lastScroll = window.pageYOffset;
+
+        function animate() {
+            const now = performance.now();
+            const dt = (now - lastFrame) / 1000;
+            lastFrame = now;
+
+            scale += 0.01 * dt;
+
+            const currentScroll = window.pageYOffset;
+            const deltaScroll = currentScroll - lastScroll;
+            scale += deltaScroll * 0.0001;
+            lastScroll = currentScroll;
+
+            if (scale < 1) scale = 1;
+
+            stars.style.transform = `scale(${scale})`;
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+</html>

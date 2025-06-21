@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Magrathea</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: black;
+            height: 100vh;
+        }
+
+        #title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-family: 'Arial', sans-serif;
+            font-size: 3em;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            z-index: 2;
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform: perspective(500px);
+            transform-style: preserve-3d;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: travel linear infinite;
+        }
+
+        @keyframes travel {
+            from {
+                transform: translateZ(0px) scale(1);
+                opacity: 1;
+            }
+            to {
+                transform: translateZ(1000px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        #message {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-family: Arial;
+            font-size: 0.8em;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">MAGRATHEA</h1>
+    <div id="stars-container"></div>
+    <a id="message" href="https://hitchhikers.com">Planet Manufacturing Division in orbit around the twin suns Soulianis and Rahm in the heart of the Horsehead Nebula</a>
+
+    <script>
+        function createStars() {
+            const container = document.getElementById('stars-container');
+            const starCount = 500;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random position
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                
+                // Random animation duration (1-3 seconds)
+                const duration = 1 + Math.random() * 2;
+                star.style.animationDuration = duration + 's';
+                
+                // Random animation delay
+                star.style.animationDelay = Math.random() * 2 + 's';
+                
+                container.appendChild(star);
+            }
+        }
+
+        // Create stars on load
+        window.addEventListener('load', createStars);
+
+        // Mouse movement effect
+        document.addEventListener('mousemove', (e) => {
+            const stars = document.querySelectorAll('.star');
+            const mouseX = e.clientX / window.innerWidth - 0.5;
+            const mouseY = e.clientY / window.innerHeight - 0.5;
+
+            stars.forEach(star => {
+                const speed = 20; // Adjust this value for different sensitivity
+                const x = (mouseX * speed) + '%';
+                const y = (mouseY * speed) + '%';
+                star.style.transform = `translate(${x}, ${y})`;
+            });
+        });
+    </script>
+</body>
+
+
+
+</html>
