@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>stairway.space | Research Notes & Projects</title>
+	<link rel="canonical" href="https://stairway.space/projects.html">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Active research and projects by Damien Koon - Physics undergraduate at Florida Institute of Technology">
+	<link rel="stylesheet" href="css/styles.css">
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+	<link rel="icon" sizes="192x192" href="images/android-chrome-192.png">
+</head>
+
+<body>
+	<div id="wrapper">
+		<header class="site-header">
+			<div class="header-content">
+				<div class="logo-container">
+					<a href="index.html" class="logo-link">
+						<img src="images/spacestairway.png" alt="stairway.space logo" class="site-logo" style="height:40px; margin-right:10px;" />
+						<span class="logo-text">stairway<span class="dot">.</span>space</span>
+						<span class="logo-subtitle">damien koon</span>
+					</a>
+				</div>
+				<nav class="main-nav" aria-label="Main navigation">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about.html">About Me</a></li>
+						<li><a href="projects.html" aria-current="page">Notes & Projects</a></li>
+						<li><a href="gallery.html">Gallery</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<section id="current-projects" class="card">
+				<h2>Research Notes & Projects</h2>
+
+				<article class="project">
+					<h3>CHSH Inequality Investigation</h3>
+					<div class="project-details">
+						<p class="project-description">
+							Exploring quantum entanglement fundamentals through the Clauser-Horne-Shimony-Holt (CHSH) inequality, investigating quantum vs. classical correlations in particle physics.
+						</p>
+						<a href="https://github.com/acroscopic/CHSH/blob/main/CHSH.pdf"
+						   class="project-link"
+						   rel="noopener noreferrer"
+						   aria-label="View CHSH Inequality PDF documentation">
+							View Research Paper (PDF)
+						</a>
+						<div class="project-meta">
+							<span class="tech-stack">Quantum Mechanics | Information Theory</span>
+							<time datetime="2025-04-13">Last Updated: September 6th, 2025</time>
+						</div>
+					</div>
+				</article>
+			</section>
+		</main>
+
+		<footer>
+			<p>&copy; Copyright 2026. All Rights Reserved.</p>
+			<p class="footer-changelog"><a href="changelog.html">Changelog</a></p>
+		</footer>
+	</div>
+	<div class="stars"></div>
+
+	<script>
+		const stars = document.querySelector('.stars');
+		let scale = 1;
+		let lastFrame = performance.now();
+		let lastScroll = window.pageYOffset;
+
+		function animate() {
+			const now = performance.now();
+			const dt = (now - lastFrame) / 1000;
+			lastFrame = now;
+
+			scale += 0.01 * dt;
+
+			const currentScroll = window.pageYOffset;
+			const deltaScroll = currentScroll - lastScroll;
+			scale += deltaScroll * 0.0001;
+			lastScroll = currentScroll;
+
+			if (scale < 1) scale = 1;
+
+			stars.style.transform = `scale(${scale})`;
+			requestAnimationFrame(animate);
+		}
+
+		animate();
+	</script>
+</body>
+</html>

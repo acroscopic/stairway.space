@@ -1,6 +1,8 @@
-# robots.txt for https://damienkoon.com
-# For now, I don't want any robits on my page. Probably will hurt SEO, but whatever
-# I don't think I need a sitemap, maybe later
-
+# robots.txt for https://stairway.space
+# Allow crawlers; disallow contact and form submission to reduce spam
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /contact.html
+Disallow: /formsubmission.html
+
+Sitemap: https://stairway.space/sitemap.xml
